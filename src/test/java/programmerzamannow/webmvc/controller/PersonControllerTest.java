@@ -71,7 +71,8 @@ class PersonControllerTest {
                         .param("socialMedias[1].name", "Instagram")
                         .param("socialMedias[1].location", "instagram.com/ProgrammerZamanNow")
         ).andExpectAll(
-                status().isBadRequest()
+                status().isBadRequest(),
+                content().string(Matchers.containsString("Validation Error"))
         );
     }
 }
