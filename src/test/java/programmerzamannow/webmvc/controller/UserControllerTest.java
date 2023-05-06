@@ -32,4 +32,13 @@ class UserControllerTest {
         );
     }
 
+    @Test
+    public void getUserInvalid() throws Exception {
+        mockMvc.perform(
+                get("/user/current")
+        ).andExpectAll(
+                status().is3xxRedirection()
+        );
+    }
+
 }
