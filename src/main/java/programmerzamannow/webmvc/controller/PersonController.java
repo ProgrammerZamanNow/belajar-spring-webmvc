@@ -1,5 +1,6 @@
 package programmerzamannow.webmvc.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ public class PersonController {
     @PostMapping(path = "/person", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public String createPerson(@ModelAttribute CreatePersonRequest request){
+    public String createPerson(@ModelAttribute @Valid CreatePersonRequest request){
 
         System.out.println(request);
 
